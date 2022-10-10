@@ -396,7 +396,7 @@ void	cycle_through_files(DIR *direct, struct dirent *diren, t_part *first, char 
 
 		if (diren->d_type == 4 && diren->d_name[0] != '.')
 		{
-			printf("%d - diren->d_type  | %s - name \n", diren->d_type,  diren->d_name);
+			// printf("%d - diren->d_type  | %s - name \n", diren->d_type,  diren->d_name);
 			new_dir = ft_strjoin_path(dir, diren->d_name);
 			// new_dir = diren->d_name;
 			if (chdir(new_dir) != -1)
@@ -482,7 +482,6 @@ int main(int argc, char **argv)
 			}
 		}
 		parsing_filename(argv[1]);
-		// searching_in_current_dir(argv[1]);
 		return 0;
 	}
 	write(2, "For call program use ff filename [dirname]\n", 43);

@@ -21,7 +21,6 @@ int	checking_one_part(t_part *first, char *line, int *i, int flag)
 	{
 		if (first && first->line != NULL && first->flag == QUEST)
 		{
-			// *i = *i + 1;
 			if (memcmp((line + *i), first->line, strlen(first->line)) != 0)
 				return (-1);
 			*i = *i + strlen(first->line);
@@ -70,7 +69,6 @@ int	checking_mid_parts(t_part *parts, t_part *last_p, char *line, int *i, int pr
 			}
 			else if (prev_part == QUEST)
 			{
-				// *i = *i + 1;
 				res_cmp = -1;
 				if (line[*i])
 					res_cmp = memcmp((line + *i), parts->line,
@@ -79,7 +77,6 @@ int	checking_mid_parts(t_part *parts, t_part *last_p, char *line, int *i, int pr
 			}
 			if (res_cmp != 0)
 				return (-1);
-			// prev_part = 0;
 		}
 		if(!parts->line)
 		{
@@ -93,12 +90,9 @@ int	checking_mid_parts(t_part *parts, t_part *last_p, char *line, int *i, int pr
 		}
 		parts = parts->next;
 	}
-	if (parts && parts == last_p)
+	if (parts && parts == last_p && last_p->line)
 	{
-		// if (!last_p->line && last_p->flag == QUEST)
-		// 	*i = *i - 1;
-		if (last_p->line)
-			last_p->flag = prev_part;
+		last_p->flag = prev_part;
 	}
 	return (0);
 }

@@ -17,9 +17,9 @@ int	checking_one_part(t_part *first, char *line, int *i, int flag)
 			*i = *i + 1;
 		}
 	}
-	if (flag == LAST)
+	if (flag == LAST && first)
 	{
-		if (first && first->line != NULL && first->flag == QUEST)
+		if (first->line && first->flag == QUEST)
 		{
 			if (memcmp((line + *i), first->line, strlen(first->line)) != 0)
 				return (-1);
@@ -28,19 +28,27 @@ int	checking_one_part(t_part *first, char *line, int *i, int flag)
 				return (0);
 			return (-1);
 		}
-		else if (first && first->line != NULL)
+		else if (first->line)
 		{
 			res_cmp = ft_strncmp_last((line + *i), first->line, 
 					strlen(first->line));
 			if (res_cmp != 0)
 				return (-1);
 		}
-		else if (first && !first->line && first->flag == QUEST)
+		else if (!first->line)
 		{
-			if (line[*i] && !line[*i + 1])
+			if (first->flag == QUEST && line[*i] && !line[*i + 1])
+				return (0);
+			if (first->flag == STAR && line[*i])
 				return (0);
 			return (-1);
 		}
+		// else if (!first->line && first->flag == STAR)
+		// {
+		// 	if (line[*i])
+		// 		return (0);
+		// 	return (-1);
+		// }
 	}
 	return (0);
 }

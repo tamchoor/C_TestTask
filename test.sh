@@ -92,3 +92,17 @@ echo TEST 3 - "./ff ".*" dir1"
 
 echo TEST 4 - "./ff "*4*" dir1"
 ./ff  "*4*" dir1
+
+echo "             Тесты с нерабочими кейсами"
+
+echo TEST 1 - "./ff "*.cpp?""
+./ff "*.cpp?"
+
+echo TEST 2 - "./ff "*.c???" "
+./ff "*.c???"
+
+echo TEST 3 - "./ff "*file" dir1"
+./ff "*file" dir1
+
+echo TEST 4 - "./ff "*4?" dir1"
+./ff  "*4?" dir1

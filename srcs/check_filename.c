@@ -19,7 +19,7 @@ int	checking_one_part(t_part *first, char *line, int *i, int flag)
 	}
 	if (flag == LAST)
 	{
-		if (first && first->line != NULL && first->flag == QUEST) // ./ff "?'?'.*"  "*.*" 
+		if (first && first->line != NULL && first->flag == QUEST)
 		{
 			// *i = *i + 1;
 			if (memcmp((line + *i), first->line, strlen(first->line)) != 0)
@@ -103,6 +103,7 @@ int	checking_mid_parts(t_part *parts, t_part *last_p, char *line, int *i, int pr
 	return (0);
 }
 
+/* Проверка соответсвия частей названию файла. Первая и последняя часть проверяются отдельно */
 int	check_filename_consists_parts(t_part *first, char *line)
 {
 	t_part	*parts;

@@ -15,7 +15,7 @@ void	cycle_through_files(DIR *direct, struct dirent *diren, t_part *first, char 
 			}
 			else
 			{
-				write(2, "Cant check dir - ", 17);
+				write(2, "Can't check dir - ", 17);
 				write(2, diren->d_name, strlen(diren->d_name));
 			}
 			free(new_dir);
@@ -28,6 +28,7 @@ void	cycle_through_files(DIR *direct, struct dirent *diren, t_part *first, char 
 	}
 }
 
+/* открытие текущей директории для чтения из нее и запуск цикла проверки*/
 void searching_in_current_dir(t_part	*parts)
 {
 

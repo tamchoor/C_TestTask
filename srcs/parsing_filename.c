@@ -95,7 +95,7 @@ int	delete_quotes_from_parts(t_part *parts)
 	return (0);
 }
 
-/*  */
+/* Парсинг названия файла по сепараторам ? и * в односвязный список*/
 t_part	*parsing_filename(char *filename)
 {
 	t_part	*parts;

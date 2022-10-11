@@ -1,5 +1,9 @@
 # C_TestTask
 
+Запуск:
+
+bash test.sh
+
 
 Задача
 

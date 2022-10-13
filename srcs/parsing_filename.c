@@ -1,6 +1,5 @@
 #include "find_file.h"
 
-
 int	find_special_symb_in_line(char *line)
 {
 	int			i;

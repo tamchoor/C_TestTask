@@ -43,12 +43,6 @@ int	checking_one_part(t_part *first, char *line, int *i, int flag)
 				return (0);
 			return (-1);
 		}
-		// else if (!first->line && first->flag == STAR)
-		// {
-		// 	if (line[*i])
-		// 		return (0);
-		// 	return (-1);
-		// }
 	}
 	return (0);
 }
@@ -141,7 +135,7 @@ int	check_filename_consists_parts(t_part *first, char *line)
 		}
 		if (checking_one_part(first, line, &i, FIRST) == -1)
 			return (-1);
-		if (line[i])
+		if (line[i] && first->flag != STAR)
 			return (-1);
 	}
 	return (0);
